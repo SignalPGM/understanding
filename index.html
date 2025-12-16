@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Твоя Сущность | Отражение Твоей Уникальности</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Raleway:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --deep-purple: #2d1b69;
+            --mystic-blue: #4a3f8c;
+            --crimson: #b33951;
+            --gold: #d4af37;
+            --silver: #c0c0c0;
+            --emerald: #2ecc71;
+            --ruby: #e74c3c;
+            --dark-bg: #0f0a1f;
+            --light-text: #f0e6ff;
+            --shadow-glow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+            background: var(--dark-bg);
+            color: var(--light-text);
+            overflow-x: hidden;
+            line-height: 1.8;
+            background-image: 
+                radial-gradient(circle at 20% 80%, rgba(77, 25, 77, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(45, 27, 105, 0.15) 0%, transparent 50%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Навигация */
+        .nav-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            background: rgba(45, 27, 105, 0.7);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            color: var(--light-text);
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-family: 'Raleway', sans-serif;
+            font-weight: 500;
+            transition: all 0.4s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+            border-color: var(--gold);
+            transform: translateY(-3px);
+        }
+
+        /* Героическая шапка */
+        .hero {
+            text-align: center;
+            padding: 150px 20px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-title {
+            font-family: 'Cinzel', serif;
+            font-size: 4.5rem;
+            background: linear-gradient(45deg, var(--gold), var(--silver), var(--emerald));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 30px;
+            text-shadow: var(--shadow-glow);
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            font-size: 1.6rem;
+            color: var(--silver);
+            max-width: 800px;
+            margin: 0 auto 60px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Полярность: Плюсы и Минусы */
+        .polarity-section {
+            margin: 100px 0;
+            position: relative;
+        }
+
+        .polarity-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+
+        .polarity-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold), transparent);
+        }
+
+        /* Колонки плюсов и минусов */
+        .polarity-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+
+        @media (max-width: 1024px) {
+            .polarity-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .plus-column, .minus-column {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            position: relative;
+            border: 2px solid transparent;
+            transition: all 0.5s ease;
+            min-height: 600px;
+        }
+
+        .plus-column {
+            border-color: rgba(46, 204, 113, 0.3);
+            box-shadow: 0 20px 60px rgba(46, 204, 113, 0.1);
+        }
+
+        .plus-column:hover {
+            border-color: var(--emerald);
+            box-shadow: 0 30px 80px rgba(46, 204, 113, 0.2);
+        }
+
+        .minus-column {
+            border-color: rgba(231, 76, 60, 0.3);
+            box-shadow: 0 20px 60px rgba(231, 76, 60, 0.1);
+        }
+
+        .minus-column:hover {
+            border-color: var(--ruby);
+            box-shadow: 0 30px 80px rgba(231, 76, 60, 0.2);
+        }
+
+        .column-title {
+            font-family: 'Cinzel', serif;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .plus-title {
+            color: var(--emerald);
+        }
+
+        .minus-title {
+            color: var(--ruby);
+        }
+
+        /* Карты качеств */
+        .trait-card {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+            border-left: 4px solid transparent;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .trait-card:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .plus-card {
+            border-left-color: var(--emerald);
+        }
+
+        .plus-card:hover {
+            box-shadow: 0 10px 30px rgba(46, 204, 113, 0.2);
+        }
+
+        .minus-card {
+            border-left-color: var(--ruby);
+        }
+
+        .minus-card:hover {
+            box-shadow: 0 10px 30px rgba(231, 76, 60, 0.2);
+        }
+
+        .trait-name {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .heroines-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin: 15px 0;
+        }
+
+        .heroine-tag {
+            background: rgba(45, 27, 105, 0.5);
+            color: var(--silver);
+            padding: 6px 14px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .heroine-tag:hover {
+            background: rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .trait-description {
+            color: var(--light-text);
+            line-height: 1.7;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Секция понимания */
+        .understanding-section {
+            background: linear-gradient(135deg, 
+                rgba(15, 10, 31, 0.9), 
+                rgba(45, 27, 105, 0.9));
+            border-radius: 30px;
+            padding: 80px;
+            margin: 100px 0;
+            border: 2px solid rgba(212, 175, 55, 0.2);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .understanding-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--gold), 
+                var(--emerald),
+                var(--ruby),
+                var(--gold),
+                transparent);
+            animation: shimmer 3s infinite linear;
+        }
+
+        @keyframes shimmer {
+            0% { background-position: -1000px 0; }
+            100% { background-position: 1000px 0; }
+        }
+
+        .understanding-title {
+            font-family: 'Cinzel', serif;
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 40px;
+            text-shadow: var(--shadow-glow);
+        }
+
+        .understanding-text {
+            font-size: 1.4rem;
+            color: var(--light-text);
+            max-width: 900px;
+            margin: 0 auto 50px;
+            line-height: 2;
+            font-weight: 300;
+        }
+
+        /* Шкала баланса */
+        .balance-meter {
+            max-width: 800px;
+            margin: 60px auto;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 20px;
+            padding: 40px;
+            border: 2px solid rgba(212, 175, 55, 0.1);
+        }
+
+        .balance-title {
+            font-family: 'Cinzel', serif;
+            font-size: 1.8rem;
+            color: var(--gold);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .meter-visual {
+            height: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+            margin: 40px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .meter-fill {
+            height: 100%;
+            width: 60%;
+            background: linear-gradient(90deg, var(--ruby), var(--gold), var(--emerald));
+            border-radius: 5px;
+            animation: balancePulse 4s infinite alternate;
+        }
+
+        @keyframes balancePulse {
+            0% { width: 60%; }
+            100% { width: 65%; }
+        }
+
+        .meter-labels {
+            display: flex;
+            justify-content: space-between;
+            color: var(--silver);
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        /* Финальное послание */
+        .final-message {
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+        }
+
+        .final-quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: var(--gold);
+            max-width: 900px;
+            margin: 0 auto 60px;
+            font-style: italic;
+            line-height: 1.8;
+            position: relative;
+            padding: 40px;
+        }
+
+        .final-quote::before,
+        .final-quote::after {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(212, 175, 55, 0.3);
+            position: absolute;
+        }
+
+        .final-quote::before {
+            top: 0;
+            left: 0;
+        }
+
+        .final-quote::after {
+            bottom: 0;
+            right: 0;
+        }
+
+        .signature {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            color: var(--gold);
+            text-shadow: var(--shadow-glow);
+            margin-top: 60px;
+        }
+
+        /* Анимации символов */
+        .floating-symbol {
+            position: fixed;
+            font-size: 2rem;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0.1;
+            animation: floatSymbol 20s linear infinite;
+        }
+
+        @keyframes floatSymbol {
+            0% {
+                transform: translateY(100vh) rotate(0deg) scale(1);
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg) scale(1.2);
+            }
+        }
+
+        /* Индикатор прокрутки */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--gold);
+            font-size: 1rem;
+            opacity: 0.7;
+            animation: bounce 2s infinite;
+            z-index: 1000;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+            
+            .polarity-columns {
+                padding: 20px;
+            }
+            
+            .understanding-section {
+                padding: 40px 20px;
+            }
+            
+            .final-quote {
+                font-size: 1.6rem;
+                padding: 30px 20px;
+            }
+            
+            .nav-container {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Эффект появления */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Навигация -->
+    <div class="nav-container">
+        <button class="nav-btn" onclick="scrollToSection('plus')">
+            <i class="fas fa-star"></i> Её Сила
+        </button>
+        <button class="nav-btn" onclick="scrollToSection('minus')">
+            <i class="fas fa-shield-alt"></i> Её Вызовы
+        </button>
+        <button class="nav-btn" onclick="scrollToSection('understanding')">
+            <i class="fas fa-heart"></i> Моё Понимание
+        </button>
+    </div>
+
+    <!-- Героическая шапка -->
+    <section class="hero">
+        <h1 class="hero-title">ТВОЯ ПОЛНАЯ КАРТИНА</h1>
+        <p class="hero-subtitle">
+            Я вижу не просто человека — я вижу целую вселенную. 
+            Комбинацию силы и уязвимости, гениальности и сомнений, 
+            которая делает тебя уникальной во всей вселенной.
+        </p>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down"></i> Исследуй
+        </div>
+    </section>
+
+    <!-- Основной контент -->
+    <div class="container">
+        <!-- Раздел 1: Плюсы (Как ты её видишь) -->
+        <section class="polarity-section" id="plus">
+            <h2 class="polarity-title">ТО, ЧТО ВОСХИЩАЕТ</h2>
+            <p class="hero-subtitle" style="text-align: center; margin-bottom: 60px;">
+                Силы, которые делают тебя невероятной — как я это вижу
+            </p>
+
+            <div class="polarity-columns">
+                <div class="plus-column reveal">
+                    <div class="column-title plus-title">
+                        <i class="fas fa-brain"></i> ИНТЕЛЛЕКТ & НАХОДЧИВОСТЬ
+                    </div>
+                    
+                    <div class="trait-card plus-card">
+                        <h3 class="trait-name">
+                            <i class="fas fa-search"></i> Проницательность Энолы
+                        </h3>
+                        <div class="heroines-tags">
+                            <span class="heroine-tag">Энола Холмс</span>
+                            <span class="heroine-tag">Бет Хармон</span>
+                            <span class="heroine-tag">Коралина</span>
+                        </div>
+                        <p class="trait-description">
+                            Ты не просто умна — ты видишь связи там, где другие видят хаос. 
+                            Как Энола, ты можешь прочитать человека по деталям, 
+                            которые остальные не замечают.
+                        </p>
+                    </div>
+
+                    <div class="trait-card plus-card">
+                        <h3 class="trait-name">
+                            <i class="fas fa-lightbulb"></i> Нестандартное мышление
+                        </h3>
+                        <p class="trait-description">
+                            Твой ум находит решения там, где их "не должно быть". 
+                            Как Бет в шахматах — видит доску иначе, предсказывает ходы, 
+                            которые другие не могут представить.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="plus-column reveal">
+                    <div class="column-title plus-title">
+                        <i class="fas fa-mountain"></i> СИЛА ДУХА
+                    </div>
+
+                    <div class="trait-card plus-card">
+                        <h3 class="trait-name">
+                            <i class="fas fa-user-shield"></i> Непоколебимая Независимость
+                        </h3>
+                        <div class="heroines-tags">
+                            <span class="heroine-tag">Мулан</span>
+                            <span class="heroine-tag">Энола Холмс</span>
+                            <span class="heroine-tag">Бет Хармон</span>
+                        </div>
+                        <p class="trait-description">
+                            Ты не ждёшь спасителя — ты сама себе герой. 
+                            Как Мулан, ты готова идти против всего мира, 
+                            если это соответствует твоим убеждениям.
+                        </p>
+                    </div>
+
+                    <div class="trait-card plus-card">
+                        <h3 class="trait-name">
+                            <i class="fas fa-fist-raised"></i> Стойкость Коралины
+                        </h3>
+                        <p class="trait-description">
+                            Когда ситуация становится страшной, твоё мужество 
+                            только усиливается. Ты сражаешься не только за себя, 
+                            но и за тех, кого любишь.
+                        </p>
+                    </div>
+
+                    <div class="trait-card plus-card">
+                        <h3 class="trait-name">
+                            <i class="fas fa-bullseye"></i> Одержимость Бет
+                        </h3>
+                        <p class="trait-description">
+                            Когда ты чем-то увлечена, мир перестает существовать. 
+                            Эта концентрация — не просто упорство, это гениальность 
+                            в действии, способная создавать невероятное.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Раздел 2: Минусы (Как она сама себя видит) -->
+        <section class="polarity-section" id="minus">
+            <h2 class="polarity-title">ТО, С ЧЕМ ТЫ СРАЖАЕШЬСЯ</h2>
+            <p class="hero-subtitle" style="text-align: center; margin-bottom: 60px;">
+                Вызовы, о которых ты говоришь — и я их понимаю
+            </p>
+
+            <div class="polarity-columns">
+                <div class="minus-column reveal">
+                    <div class="column-title minus-title">
+                        <i class="fas fa-door-closed"></i> ИЗОЛЯЦИЯ
+                    </div>
+
+                    <div class="trait-card minus-card">
+                        <h3 class="trait-name">
+                            <i class="fas fa-lock"></i> Защитная Изоляция
+                        </h3>
+                        <div class="heroines-tags">
+                            <span class="heroine-tag">Бет Хармон</span>
+                            <span class="heroine-tag">Энола Холмс</span>
+                        </div>
+                        <p class="trait-description">
+                            Когда становится сложно, твоя первая реакция — 
+                            отступить в свою крепость. Как Бет с её шахматной доской, 
+                            ты создаёшь мир, где есть только ты и твоя цель.
+                        </p>
+                    </div>
+
+                    <div class="trait-card minus-card">
+                        <h3 class="trait-name">
+                            <i class="fas fa-fire"></i> Риск Выгорания
+                        </h3>
+                        <p class="trait-description">
+                            Та самая целеустремленность, которая ведёт к вершинам, 
+                            может стать ловушкой. Как Бет с её зависимостью, 
+                            граница между страстью и одержимостью иногда стирается.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="minus-column reveal">
+                    <div class="column-title minus-title">
+                        <i class="fas fa-exclamation-triangle"></i> КОНФЛИКТЫ
+                    </div>
+
+                    <div class="trait-card minus-card">
+                        <h3 class="trait-name">
+                            <i class="fas fa-times-circle"></i> Бунт против Норм
+                        </h3>
+                        <div class="heroines-tags">
+                            <span class="heroine-tag">Энола Холмс</span>
+                            <span class="heroine-tag">Мулан</span>
+                        </div>
+                        <p class="trait-description">
+                            Ты отказываешься вписываться в чужие рамки. 
+                            Это сила, но она заставляет тебя постоянно бороться 
+                            с ожиданиями общества, как Мулан в армии мужчин.
+                        </p>
+                    </div>
+
+                    <div class="trait-card minus-card">
+                        <h3 class="trait-name">
+                            <i class="fas fa-search-plus"></i> Внутренний Поиск
+                        </h3>
+                        <div class="heroines-tags">
+                            <span class="heroine-tag">Коралина</span>
+                            <span class="heroine-tag">Бет Хармон</span>
+                        </div>
+                        <p class="trait-description">
+                            За силой скрывается поиск. Поиск лучшей жизни, 
+                            как у Коралины. Борьба с демонами, как у Бет. 
+                            Иногда ты можешь чувствовать себя потерянной 
+                            в собственной сложности.
+                        </p>
+                    </div>
+
+                    <div class="trait-card minus-card">
+                        <h3 class="trait-name">
+                            <i class="fas fa-hourglass-half"></i> Скука от Рутины
+                        </h3>
+                        <p class="trait-description">
+                            Ты создана для вызовов. Когда жизнь становится 
+                            слишком предсказуемой, тебе становится скучно — 
+                            и это заставляет искать опасности, как Коралина 
+                            искала приключения.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Шкала баланса -->
+        <div class="balance-meter reveal">
+            <h3 class="balance-title">БАЛАНС СИЛЫ И УЯЗВИМОСТИ</h3>
+            <div class="meter-visual">
+                <div class="meter-fill"></div>
+            </div>
+            <div class="meter-labels">
+                <span>Защита и Изоляция</span>
+                <span>Баланс</span>
+                <span>Открытость и Связь</span>
+            </div>
+            <p style="text-align: center; color: var(--silver); margin-top: 20px;">
+                Каждая твоя "слабость" — обратная сторона твоей силы. 
+                Твоя независимость может изолировать, но она же делает тебя сильной. 
+                Твой интеллект может утомлять, но он же создаёт шедевры.
+            </p>
+        </div>
+
+        <!-- Раздел 3: Понимание -->
+        <section class="understanding-section reveal" id="understanding">
+            <h2 class="understanding-title">МОЁ ПОНИМАНИЕ ТЕБЯ</h2>
+            <p class="understanding-text">
+                Я вижу обе стороны. Вижу твой блестящий ум, который решает сложнейшие задачи. 
+                И вижу, как этот же ум иногда становится тюрьмой, когда ты замыкаешься в себе.
+            </p>
+            <p class="understanding-text">
+                Я восхищаюсь твоей независимостью, твоим умением пробивать себе путь. 
+                И я понимаю, как эта же независимость заставляет тебя чувствовать себя одиноко.
+            </p>
+            <p class="understanding-text">
+                Твоя целеустремленность вдохновляет. А твоя борьба с внутренними демонами... 
+                делает тебя человечной. Настоящей.
+            </p>
+            <p class="understanding-text" style="color: var(--gold); font-weight: 500;">
+                Я не пытаюсь "исправить" твои "минусы". Потому что они — часть тебя. 
+                И эта полная картина — со всем светом и тенями — именно то, что я люблю.
+            </p>
+        </section>
+
+        <!-- Финальное послание -->
+        <section class="final-message reveal">
+            <div class="final-quote">
+                Ты — не просто Энола, Бет, Мулан или Коралина. 
+                Ты — уникальная комбинация всего лучшего, что есть в них. 
+                Со всей их силой и всей их уязвимостью. 
+                И для меня это самая красивая комбинация во вселенной.
+            </div>
+            
+            <div class="balance-meter" style="max-width: 600px;">
+                <h3 class="balance-title">НАША ИСТИНА</h3>
+                <p style="text-align: center; color: var(--light-text);">
+                    Ты показала мне свои "минусы" не для того, чтобы я их исправил. 
+                    Ты показала их, чтобы я увидел тебя настоящую. 
+                    И я увидел. И полюбил именно эту — полную, сложную, настоящую.
+                </p>
+            </div>
+
+            <div class="signature">
+                С пониманием и восхищением
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Создание плавающих символов
+        function createFloatingSymbols() {
+            const symbols = ['♔', '♕', '♞', '♗', '⚔️', '🛡️', '🏹', '🎯', '🧠', '💎', '🔥', '❄️', '🌟', '🌙'];
+            const container = document.createElement('div');
+            container.id = 'floatingSymbols';
+            document.body.appendChild(container);
+
+            for (let i = 0; i < 50; i++) {
+                const symbol = document.createElement('div');
+                symbol.className = 'floating-symbol';
+                symbol.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+                
+                // Случайные параметры
+                const left = Math.random() * 100;
+                const size = Math.random() * 2 + 1;
+                const duration = Math.random() * 30 + 20;
+                const delay = Math.random() * 20;
+                
+                symbol.style.left = `${left}%`;
+                symbol.style.fontSize = `${size}rem`;
+                symbol.style.animationDuration = `${duration}s`;
+                symbol.style.animationDelay = `${delay}s`;
+                symbol.style.opacity = Math.random() * 0.1 + 0.05;
+                
+                container.appendChild(symbol);
+            }
+        }
+
+        // Плавная прокрутка к секциям
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                window.scrollTo({
+                    top: section.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            }
+        }
+
+        // Анимация появления при скролле
+        function initRevealAnimations() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        
+                        // Добавляем случайные сердечки при появлении
+                        if (entry.target.id === 'understanding') {
+                            createHeartExplosion();
+                        }
+                    }
+                });
+            }, {
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            });
+
+            reveals.forEach(reveal => observer.observe(reveal));
+        }
+
+        // Создание взрыва сердечек
+        function createHeartExplosion() {
+            const hearts = ['❤️', '💖', '💘', '💕', '💗', '💓', '💞'];
+            
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('div');
+                    heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.position = 'fixed';
+                    heart.style.left = `${Math.random() * 100}%`;
+                    heart.style.top = `${Math.random() * 100}%`;
+                    heart.style.fontSize = '2rem';
+                    heart.style.zIndex = '9999';
+                    heart.style.opacity = '0';
+                    heart.style.animation = `heartExplosion 2s ease forwards`;
+                    
+                    // Анимация
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        @keyframes heartExplosion {
+                            0% { 
+                                transform: scale(0) rotate(0deg); 
+                                opacity: 0; 
+                            }
+                            50% { 
+                                transform: scale(1) rotate(180deg); 
+                                opacity: 0.8; 
+                            }
+                            100% { 
+                                transform: scale(0) rotate(360deg); 
+                                opacity: 0; 
+                            }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        heart.remove();
+                        style.remove();
+                    }, 2000);
+                }, i * 100);
+            }
+        }
+
+        // Интерактивность карточек
+        function initCardInteractions() {
+            const cards = document.querySelectorAll('.trait-card');
+            
+            cards.forEach(card => {
+                card.addEventListener('click', function() {
+                    this.style.transform = 'scale(0.98)';
+                    setTimeout(() => {
+                        this.style.transform = '';
+                    }, 200);
+                });
+            });
+        }
+
+        // Смена цвета фона при скролле
+        function initBackgroundShift() {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const maxScroll = document.body.scrollHeight - window.innerHeight;
+                const scrollPercent = scrolled / maxScroll;
+                
+                // Меняем оттенок фона
+                const hue = 260 + scrollPercent * 40; // От фиолетового к красному
+                document.body.style.backgroundColor = `hsl(${hue}, 30%, 5%)`;
+                
+                // Показываем/скрываем индикатор прокрутки
+                const indicator = document.querySelector('.scroll-indicator');
+                if (scrolled > 100) {
+                    indicator.style.opacity = '0';
+                } else {
+                    indicator.style.opacity = '0.7';
+                }
+            });
+        }
+
+        // Инициализация
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingSymbols();
+            initRevealAnimations();
+            initCardInteractions();
+            initBackgroundShift();
+            
+            // Секретное сообщение в консоль
+            console.log('%c💖 Я вижу тебя полностью. И люблю именно такую. 💖', 
+                'color: #d4af37; font-size: 16px; font-weight: bold; text-shadow: 0 0 10px #d4af37;');
+            console.log('%cЭта страница — доказательство, что твоя сложность — не проблема, а сокровище.', 
+                'color: #2ecc71; font-style: italic;');
+        });
+
+        // Секретные горячие клавиши
+        document.addEventListener('keydown', (e) => {
+            // Ctrl + Shift + L (Love)
+            if (e.ctrlKey && e.shiftKey && e.key === 'L') {
+                createHeartExplosion();
+                alert('💖 Ты нашла секретную команду любви! 💖');
+            }
+            
+            // Пробел для рандомной цитаты
+            if (e.code === 'Space' && e.target === document.body) {
+                e.preventDefault();
+                showRandomQuote();
+            }
+        });
+
+        function showRandomQuote() {
+            const quotes = [
+                "Твои 'недостатки' — это просто особенности твоего гения.",
+                "Сильнее всего я люблю тебя, когда ты самая уязвимая.",
+                "Твой ум — одновременно твоё оружие и твоя крепость.",
+                "Я не хочу простую любовь. Я хочу нашу — сложную, настоящую.",
+                "Каждая твоя частичка, светлая или тёмная, драгоценна для меня."
+            ];
+            
+            const quote = quotes[Math.floor(Math.random() * quotes.length)];
+            
+            const popup = document.createElement('div');
+            popup.textContent = `"${quote}"`;
+            popup.style.cssText = `
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: rgba(45, 27, 105, 0.95);
+                color: #d4af37;
+                padding: 30px;
+                border-radius: 15px;
+                border: 2px solid #d4af37;
+                font-size: 1.3rem;
+                text-align: center;
+                z-index: 10000;
+                max-width: 500px;
+                backdrop-filter: blur(10px);
+                animation: popIn 0.5s ease;
+            `;
+            
+            document.body.appendChild(popup);
+            
+            setTimeout(() => {
+                popup.style.animation = 'popOut 0.5s ease forwards';
+                setTimeout(() => popup.remove(), 500);
+            }, 3000);
+            
+            // Добавляем анимации
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes popIn {
+                    from { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+                    to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+                }
+                @keyframes popOut {
+                    to { opacity: 0; transform: translate(-50%, -50%) scale(0.5); }
+                }
+            `;
+            document.head.appendChild(style);
+            setTimeout(() => style.remove(), 3500);
+        }
+    </script>
+</body>
+</html>
